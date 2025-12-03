@@ -14,41 +14,97 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="header__row">
-          <div class="header__categories">
-            <button class="header__category">Pizza</button>
-            <button class="header__category">Drinks</button>
-          </div>
-          <button class="header__button">Cart</button>
-        </div>
-      </div>
-    </header>
-    <main class="main">
-      <div class="container">
-        <div class="products">
-          <div class="product">
-            <div class="product__top">
-              <img
-                class="product__img"
-                src="https://media.dodostatic.net/image/r:584x584/0195960cdb9079b38dd908001994d5dc.avif"
-                alt=""
-              />
-              <h2 class="product__title">Pizza Combo</h2>
-              <p class="product__description">
-                Любые вкусы. Любые размеры. Соберите свою тройку, как вы любите.
-                Цена зависит от выбора.
-              </p>
+    <div class="relative">
+      <header class="header">
+        <div class="container">
+          <div class="header__row">
+            <div class="header__categories">
+              <button class="header__category">Pizza</button>
+              <button class="header__category">Drinks</button>
             </div>
-            <div class="product__bottom">
-              <h3 class="product__price">900 p</h3>
-              <button class="product__btn">Add to Cart</button>
-            </div>
+            <button class="header__button">Cart</button>
           </div>
         </div>
+      </header>
+      <main class="main">
+        <div class="container">
+          <div class="products">
+            <div class="product">
+              <div class="product__top">
+                <img
+                  class="product__img"
+                  src="https://media.dodostatic.net/image/r:584x584/019a897c5ea574b889475bd98412de7b.avif"
+                />
+                <h2 class="product__title">Мясная</h2>
+                <p class="product__description">
+                  Перезагрузили рецепт: теперь пять видов мяса и новый фирменный
+                  соус, который делает вкус еще ярче. Цыпленок, говядина,
+                  колбаски, пепперони и бекон стали еще мяснее!
+                </p>
+              </div>
+              <div class="product__bottom">
+                <h3 class="product__price">460 ₽</h3>
+                <button class="product__btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="cart">
+      <div class="empty__cart hide">
+        <img
+          src="https://cdn.dodostatic.net/pizza-site/dist/assets/5aa5dac99a832c62f3ef..svg"
+          class="img__empty__cart"
+        />
+        <h2 class="title__cart">Пока тут пусто</h2>
+        <p class="text__cart">
+          Добавьте пиццу. Или две! <br />
+          А мы доставим ваш заказ от 649 ₽
+        </p>
       </div>
-    </main>
+
+      <div class="full__cart">
+        <div class="container__gray">
+          <h2 class="number__of__selected__products">0 товаров на 0 ₽</h2>
+        </div>
+
+        <div class="info__of__products">
+          <div class="info__of__products__left">
+            <img
+              src="https://media.dodostatic.net/image/r:584x584/019a897c5ea574b889475bd98412de7b.avif"
+              class="photo__cart"
+            />
+          </div>
+
+          <div class="info__of__products__right">
+            <h2 class="title__cart">Мясная</h2>
+            <p class="description__cart">
+              Перезагрузили рецепт: теперь пять видов мяса и новый фирменный
+              соус, который делает вкус еще ярче. Цыпленок, говядина, колбаски,
+              пепперони и бекон стали еще мяснее!
+            </p>
+          </div>
+        </div>
+
+        <div class="product__quantity">
+          <p class="price">460 ₽</p>
+          <div class="quantity__container">
+            <button class="less">-</button>
+            <p class="quantity">1</p>
+            <button class="more">+</button>
+          </div>
+        </div>
+        <p class="p__order__amount">
+          Order amount <span class="span__order__amount">0 ₽</span>
+        </p>
+        <button class="btn__cart">To place an order spa</button>
+      </div>
+
+      <button class="btn__close__cart">x</button>
+    </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
