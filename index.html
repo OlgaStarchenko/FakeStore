@@ -17,12 +17,36 @@
     <div class="relative">
       <header class="header">
         <div class="container">
-          <div class="header__row">
+          <div class="header__top__row">
             <div class="header__categories">
               <button class="header__category">Pizza</button>
               <button class="header__category">Drinks</button>
             </div>
+
             <button class="header__button">Cart</button>
+          </div>
+
+          <div class="header__bottom__row">
+            <div class="header__search">
+              <input class="search__input" type="text" />
+              <button class="button__search">Search</button>
+            </div>
+            <div class="select__container">
+              <div class="select__limit">
+                <label for="limit">limit</label>
+                <select name="limit" id="limit">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+              </div>
+              <div class="select__sort__by">
+                <label for="sort__by">sort by</label>
+                <select name="sort__by" id="sort__by">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
       </header>
