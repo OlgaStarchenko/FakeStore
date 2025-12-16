@@ -31,10 +31,7 @@ body {
   width: 250px;
   white-space: nowrap;
 }
-.info {
-  text-align: right;
-  padding-right: 17px;
-}
+
 .header__top__row {
   display: flex;
   justify-content: space-between;

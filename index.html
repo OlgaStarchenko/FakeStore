@@ -19,10 +19,7 @@
         <div class="container">
           <div class="logo__container">
             <img class="logo" src="./logoDodo.png" alt="" />
-            <h1 class="name">dodo pizza</h1>
-            <p class="info">
-              Fast and convenient pizza delivery in Komsomolsk-on-Amur
-            </p>
+            <h1 class="name">Fake Store</h1>
           </div>
           <div class="header__top__row">
             <div class="header__categories">
@@ -68,14 +65,10 @@
                     src="https://media.dodostatic.net/image/r:584x584/019a897c5ea574b889475bd98412de7b.avif"
                   />
                   <h2 class="product__title">Мясная</h2>
-                  <p class="product__description">
-                    Перезагрузили рецепт: теперь пять видов мяса и новый
-                    фирменный соус, который делает вкус еще ярче. Цыпленок,
-                    говядина, колбаски, пепперони и бекон стали еще мяснее!
-                  </p>
+                  <p class="product__description"></p>
                 </div>
                 <div class="product__bottom">
-                  <h3 class="product__price">460 ₽</h3>
+                  <h3 class="product__price"></h3>
                   <button class="product__btn">Add to Cart</button>
                 </div>
               </div>
@@ -95,34 +88,32 @@
                 <h2 class="number__of__selected__products">0 товаров на 0 ₽</h2>
               </div>
               <div class="cart__products">
-                <div class="cart__product">
-                  <div class="info__of__products">
-                    <div class="info__of__products__left">
-                      <img
-                        src="https://media.dodostatic.net/image/r:584x584/019a897c5ea574b889475bd98412de7b.avif"
-                        class="photo__cart"
-                      />
+                <template class="cart__template">
+                  <div class="cart__product">
+                    <div class="info__of__products">
+                      <div class="info__of__products__left">
+                        <img
+                          src="https://media.dodostatic.net/image/r:584x584/019a897c5ea574b889475bd98412de7b.avif"
+                          class="photo__cart"
+                        />
+                      </div>
+
+                      <div class="info__of__products__right">
+                        <h2 class="title__cart"></h2>
+                        <p class="description__cart"></p>
+                      </div>
                     </div>
 
-                    <div class="info__of__products__right">
-                      <h2 class="title__cart">Мясная</h2>
-                      <p class="description__cart">
-                        Перезагрузили рецепт: теперь пять видов мяса и новый
-                        фирменный соус, который делает вкус еще ярче. Цыпленок,
-                        говядина, колбаски, пепперони и бекон стали еще мяснее!
-                      </p>
+                    <div class="product__quantity">
+                      <p class="price">₽</p>
+                      <div class="quantity__container">
+                        <button class="less">-</button>
+                        <p class="quantity">1</p>
+                        <button class="more">+</button>
+                      </div>
                     </div>
                   </div>
-
-                  <div class="product__quantity">
-                    <p class="price">460 ₽</p>
-                    <div class="quantity__container">
-                      <button class="less">-</button>
-                      <p class="quantity">1</p>
-                      <button class="more">+</button>
-                    </div>
-                  </div>
-                </div>
+                </template>
               </div>
             </div>
 
