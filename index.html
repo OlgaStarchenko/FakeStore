@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fast and convenient pizza delivery in Komsomolsk-on-Amur</title>
+    <title>Fake Store</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,8 +23,10 @@
           </div>
           <div class="header__top__row">
             <div class="header__categories">
-              <button class="header__category">Pizza</button>
-              <button class="header__category">Drinks</button>
+              <button class="header__category">Cosmetics</button>
+              <button class="header__category">Perfumery</button>
+              <button class="header__category">Furniture</button>
+              <button class="header__category">Food</button>
             </div>
 
             <button class="header__button">Cart</button>
@@ -85,11 +87,15 @@
           <div class="full__cart">
             <div class="cart__top">
               <div class="container__gray">
-                <h2 class="number__of__selected__products">0 товаров на 0 ₽</h2>
+                <h2 class="number__of__selected__products">
+                  <span class="cart__quantity">0</span> товаров на
+                  <span class="cart__sum">0</span> $
+                </h2>
               </div>
               <div class="cart__products">
                 <template class="cart__template">
                   <div class="cart__product">
+                    <button class="cart__delete">x</button>
                     <div class="info__of__products">
                       <div class="info__of__products__left">
                         <img
@@ -119,7 +125,7 @@
 
             <div class="order__bottom">
               <p class="p__order__amount">
-                Order amount <span class="span__order__amount">0 ₽</span>
+                Order amount <span class="span__order__amount"></span>
               </p>
               <button class="btn__cart">To place an order</button>
             </div>

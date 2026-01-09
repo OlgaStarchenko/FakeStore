@@ -5,6 +5,10 @@ const products = document.querySelector(".products");
 const productTemplate = document.querySelector(".product__template");
 const cartTemplate = document.querySelector(".cart__template");
 const cartProducts = document.querySelector(".cart__products");
+const cartQuantity = document.querySelector(".cart__quantity");
+const cartSum = document.querySelector(".cart__sum");
+const cartAmount = document.querySelector(".span__order__amount");
+
 let cartArray = [];
 
 fetch("https://dummyjson.com/products")
@@ -30,6 +34,8 @@ function renderProducts(arr) {
     products.append(clone);
     cloneBtn.addEventListener("click", () => {
       addProductToCart(el);
+      cloneBtn.classList.remove("product__btn");
+      cloneBtn.classList.add("header__button");
     });
   });
 }
@@ -45,7 +51,27 @@ function addProductToCart(el) {
   renderCart();
 }
 
+function deleteProductFromCart(el) {
+  cartArray = cartArray.filter((product) => product.id !== el.id);
+  renderCart();
+}
+
+function getOrderAmount() {
+  let quantity = 0;
+  let sum = 0;
+  cartArray.forEach((product) => {
+    sum = sum + product.price * product.count;
+    quantity = quantity + product.count;
+  });
+  sum = sum.toFixed(2);
+  cartQuantity.textContent = quantity;
+  cartSum.textContent = sum;
+  cartAmount.textContent = sum;
+}
+
 function renderCart() {
+  // console.log(cartArray);
+
   cartProducts.innerHTML = null;
   cartArray.forEach((el) => {
     const clone = cartTemplate.content.cloneNode(true);
@@ -56,6 +82,7 @@ function renderCart() {
     const cloneBtnLess = clone.querySelector(".less");
     const cloneQuantity = clone.querySelector(".quantity");
     const cloneBtnMore = clone.querySelector(".more");
+    const cloneDelete = clone.querySelector(".cart__delete");
     cloneImg.src = el.thumbnail;
     cloneTitle.innerText = el.title;
     cloneDescription.innerText = el.description;
@@ -64,8 +91,21 @@ function renderCart() {
     cloneBtnMore.addEventListener("click", () => {
       addProductToCart(el);
     });
+    cloneBtnLess.addEventListener("click", () => {
+      if (el.count > 1) {
+        el.count--;
+        renderCart();
+      }
+    });
+    cloneDelete.addEventListener("click", () => {
+      deleteProductFromCart(el);
+    });
+
     cartProducts.append(clone);
   });
+  getOrderAmount();
+
+  // console.log(cartArray);
 }
 
 function openCart() {
