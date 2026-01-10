@@ -8,6 +8,8 @@ const cartProducts = document.querySelector(".cart__products");
 const cartQuantity = document.querySelector(".cart__quantity");
 const cartSum = document.querySelector(".cart__sum");
 const cartAmount = document.querySelector(".span__order__amount");
+const foolCart = document.querySelector(".full__cart");
+const emptyCart = document.querySelector(".empty__cart");
 
 let cartArray = [];
 
@@ -54,6 +56,7 @@ function addProductToCart(el) {
 function deleteProductFromCart(el) {
   cartArray = cartArray.filter((product) => product.id !== el.id);
   renderCart();
+  getEmptyCart();
 }
 
 function getOrderAmount() {
@@ -68,9 +71,19 @@ function getOrderAmount() {
   cartSum.textContent = sum;
   cartAmount.textContent = sum;
 }
+function getEmptyCart() {
+  console.log(cartArray.length);
+
+  const lengthCartArray = cartArray.length;
+  if (lengthCartArray) {
+    foolCart.classList.remove("hide");
+  } else if (lengthCartArray === 0) {
+    foolCart.classList.add("hide");
+  }
+}
 
 function renderCart() {
-  // console.log(cartArray);
+  getEmptyCart();
 
   cartProducts.innerHTML = null;
   cartArray.forEach((el) => {

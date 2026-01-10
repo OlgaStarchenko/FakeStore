@@ -209,7 +209,7 @@ html:has(.cart__open) {
 }
 .img__empty__cart {
   width: 100%;
-  height: 250px;
+  height: 350px;
   object-fit: contain;
 }
 .title__cart {
@@ -217,11 +217,7 @@ html:has(.cart__open) {
   font-weight: bold;
   background: none;
 }
-.text__cart {
-  font-size: 18px;
-  font-weight: 500px;
-  text-align: center;
-}
+
 .full__cart {
   height: 100%;
   display: flex;
