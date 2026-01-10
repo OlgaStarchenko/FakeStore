@@ -72,8 +72,6 @@ function getOrderAmount() {
   cartAmount.textContent = sum;
 }
 function getEmptyCart() {
-  console.log(cartArray.length);
-
   const lengthCartArray = cartArray.length;
   if (lengthCartArray) {
     foolCart.classList.remove("hide");
@@ -108,6 +106,8 @@ function renderCart() {
       if (el.count > 1) {
         el.count--;
         renderCart();
+      } else {
+        deleteProductFromCart(el);
       }
     });
     cloneDelete.addEventListener("click", () => {
