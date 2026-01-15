@@ -35,8 +35,8 @@ body {
 .header__top__row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: flex-start;
+  margin-bottom: 30px;
   margin-left: 17px;
   margin-right: 17px;
 }
@@ -50,15 +50,20 @@ body {
 
 .header__categories {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 10px;
 }
 .header__category {
   font-size: 20px;
   font-weight: bold;
   background: none;
 }
-.header__category:hover {
+.header__category__active {
   color: rgb(245, 136, 12);
+}
+.header__category:hover {
+  color: rgba(241, 137, 18, 0.5);
 }
 .header__button {
   font-size: 20px;
