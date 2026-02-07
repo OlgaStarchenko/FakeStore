@@ -12,7 +12,22 @@ const foolCart = document.querySelector(".full__cart");
 const emptyCart = document.querySelector(".empty__cart");
 const headerCount = document.querySelector(".header__count");
 const headerCategories = document.querySelector(".header__categories");
+const inputSearch = document.querySelector(".search__input");
+const buttonSearch = document.querySelector(".button__search");
+const selectSortBy = document.querySelector("#sort__by");
+
 let category = null;
+let search = null;
+let sortId = null;
+
+const sortValues = {
+  1: { sortBy: "id", order: "asc" },
+  2: { sortBy: "price", order: "asc" },
+  3: { sortBy: "price", order: "desc" },
+  4: { sortBy: "title", order: "asc" },
+  5: { sortBy: "title", order: "desc" },
+  6: { sortBy: "rating", order: "desc" },
+};
 
 let cartArray = [];
 
@@ -22,6 +37,13 @@ function getProducts() {
   let URL = "https://dummyjson.com/products";
   if (category) {
     URL += `/category/${category}`;
+  }
+  if (sortId) {
+    URL += `?sortBy=${sortValues[sortId].sortBy}&order=${sortValues[sortId].order}`;
+  }
+
+  if (search) {
+    URL = `https://dummyjson.com/products/search?q=${search}`;
   }
   fetch(URL)
     .then((res) => res.json())
@@ -162,9 +184,31 @@ function renderCart() {
     cartProducts.append(clone);
   });
   getOrderAmount();
-
-  // console.log(cartArray);
 }
+
+buttonSearch.addEventListener("click", () => {
+  search = inputSearch.value;
+  getProducts();
+});
+
+inputSearch.addEventListener("input", () => {
+  if (!inputSearch.value) {
+    search = null;
+    getProducts();
+  }
+});
+
+inputSearch.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    search = inputSearch.value;
+    getProducts();
+  }
+});
+
+selectSortBy.addEventListener("change", () => {
+  sortId = selectSortBy.value;
+  getProducts();
+});
 
 function openCart() {
   cart.classList.add("cart__open");
