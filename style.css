@@ -332,6 +332,26 @@ html:has(.cart__open) {
   color: white;
   background: none;
 }
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  gap: 10px;
+}
+
+.pagination__btn {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(245, 136, 12);
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  align-self: center;
+}
+
 .hide {
   display: none;
 }

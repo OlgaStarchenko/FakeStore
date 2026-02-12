@@ -15,10 +15,16 @@ const headerCategories = document.querySelector(".header__categories");
 const inputSearch = document.querySelector(".search__input");
 const buttonSearch = document.querySelector(".button__search");
 const selectSortBy = document.querySelector("#sort__by");
+const selectLimit = document.querySelector("#limit");
+const btnLeft = document.querySelector("#btn__left");
+const btnRight = document.querySelector("#btn__right");
+const paginationValue = document.querySelector(".pagination__value");
 
 let category = null;
 let search = null;
 let sortId = null;
+let limit = 5;
+let page = 1;
 
 const sortValues = {
   1: { sortBy: "id", order: "asc" },
@@ -38,17 +44,25 @@ function getProducts() {
   if (category) {
     URL += `/category/${category}`;
   }
+
+  URL += `?limit=${limit}&skip=${limit * (page - 1)}`;
   if (sortId) {
-    URL += `?sortBy=${sortValues[sortId].sortBy}&order=${sortValues[sortId].order}`;
+    URL += `&sortBy=${sortValues[sortId].sortBy}&order=${sortValues[sortId].order}`;
   }
 
   if (search) {
     URL = `https://dummyjson.com/products/search?q=${search}`;
   }
+
   fetch(URL)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
+      if (Math.ceil(data.total / limit) === page) {
+        btnRight.setAttribute("disabled", true);
+      } else {
+        btnRight.removeAttribute("disabled");
+      }
       renderProducts(data.products);
     });
 }
@@ -68,6 +82,8 @@ function renderCategories(arr) {
     button.textContent = el;
     button.addEventListener("click", () => {
       category = el;
+      page = 1;
+      paginationValue.innerHTML = page;
       const activeButton = document.querySelector(".header__category__active");
       if (activeButton === button) {
         button.classList.remove("header__category__active");
@@ -210,6 +226,11 @@ selectSortBy.addEventListener("change", () => {
   getProducts();
 });
 
+selectLimit.addEventListener("change", () => {
+  limit = selectLimit.value;
+  getProducts();
+});
+
 function openCart() {
   cart.classList.add("cart__open");
 }
@@ -224,4 +245,20 @@ headerButton.addEventListener("click", () => {
 
 btnCloseCart.addEventListener("click", () => {
   closeCart();
+});
+
+btnLeft.addEventListener("click", () => {
+  if (page === 1) {
+    btnLeft.setAttribute("disabled", true);
+  } else {
+    page--;
+    paginationValue.innerHTML = page;
+    getProducts();
+  }
+});
+
+btnRight.addEventListener("click", () => {
+  page++;
+  paginationValue.innerHTML = page;
+  getProducts();
 });

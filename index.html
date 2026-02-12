@@ -38,7 +38,10 @@
               <div class="select__limit">
                 <label for="limit">limit</label>
                 <select name="limit" id="limit">
-                  <option value="1"></option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
                 </select>
               </div>
               <div class="select__sort__by">
@@ -75,6 +78,12 @@
                 </div>
               </div>
             </template>
+          </div>
+
+          <div class="pagination">
+            <button class="pagination__btn" id="btn__left"><</button>
+            <span class="pagination__value">1</span>
+            <button class="pagination__btn" id="btn__right">></button>
           </div>
         </div>
       </main>
